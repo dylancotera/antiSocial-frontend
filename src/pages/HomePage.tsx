@@ -33,7 +33,7 @@ function HomePage(){
         async function cargarPosts() {
             try {
                 const data = await getPosts();
-                setPosts(data);
+                setPosts([...data].sort(() => Math.random() - 0.5))
             } catch (error) {
                 console.error(error)
             }
