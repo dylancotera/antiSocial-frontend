@@ -86,7 +86,7 @@ function HomePage(){
             className="input-auth mb-3"
           />
           <div className="d-flex justify-content-end">
-            <Button type="submit" className="btn-auth px-4">
+            <Button type="submit" className="btn-auth px-4" disabled={description.length === 0}>
               Publicar
             </Button>
           </div>
