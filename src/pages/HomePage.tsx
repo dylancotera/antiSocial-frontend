@@ -53,7 +53,7 @@ function HomePage(){
         </>
       ) : (
         <>
-          <p className="hero-title">Bienvenido a Anti-Social Net <i className="bi bi-twitter-x" /></p>
+          <p className="hero-title">Bienvenido a Anti-Social Net</p>
           <p className="hero-subtitle">La red social con lo último en noticias.</p>
           <div className="d-flex gap-2 mt-3">
             <Button variant="light" size="sm" onClick={() => navigate("/register")}>
