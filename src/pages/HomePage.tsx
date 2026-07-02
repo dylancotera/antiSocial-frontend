@@ -21,7 +21,12 @@ function HomePage(){
             userId: user!.id,
             tagIds: []
             })
-            setPosts(prev => [nuevoPost, ...prev])
+            const postConUser = {
+            ...nuevoPost,
+            User: { id: user!.id, nickName: user!.nickName, email: "" },
+            Tags: []
+            }
+            setPosts(prev => [postConUser, ...prev])
             setDescription("")
         } catch(error) {
             console.error(error)
@@ -53,7 +58,7 @@ function HomePage(){
         </>
       ) : (
         <>
-          <p className="hero-title">Bienvenido a Anti-Social Net</p>
+          <p className="hero-title">Bienvenido a Anti-Social Net <i className="bi bi-rocket-takeoff-fill"></i></p>
           <p className="hero-subtitle">La red social con lo último en noticias.</p>
           <div className="d-flex gap-2 mt-3">
             <Button variant="light" size="sm" onClick={() => navigate("/register")}>

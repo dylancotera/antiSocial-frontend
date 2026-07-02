@@ -17,7 +17,8 @@ export function AppHeader() {
     <Navbar className="navbar-custom" sticky="top" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/" className="brand-custom">
-          Anti-Social Net
+          Anti-Social Net <i className="bi bi-rocket-takeoff-fill"></i>
+
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="menu-principal" />

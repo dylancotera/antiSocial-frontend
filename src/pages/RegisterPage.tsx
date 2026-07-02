@@ -21,8 +21,8 @@ export function RegisterPage() {
           nuevosErrores.nickName = "El usuario debe tener al menos 3 caracteres"
       } else if(nickName.includes(" ")) {
           nuevosErrores.nickName = "El usuario no puede tener espacios"
-      }else if(nickName.length > 6) {
-          nuevosErrores.nickName = "El usuario no puede tener mas de 6 caracteres"
+      }else if(nickName.length > 10) {
+          nuevosErrores.nickName = "El usuario no puede tener mas de 10 caracteres"
       }
       if(email.trim() === ""){
         nuevosErrores.email = "El email es obligatorio"
@@ -45,7 +45,7 @@ export function RegisterPage() {
 
         try {
             await crearUsuario({ nickName, email })
-            navigate("/login")
+            navigate("/login", { state: { mensaje: "¡Registro exitoso! Iniciá sesión." } })
         } catch (error) {
             if (error instanceof Error) {
                  setErrores({ general: error.message });

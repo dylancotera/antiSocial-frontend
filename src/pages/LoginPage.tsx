@@ -1,16 +1,21 @@
-import { useState } from "react";
-import { Alert, Button, Container, Form } from "react-bootstrap";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Alert, Button, Container, Form, Toast, ToastContainer } from "react-bootstrap";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+
 
 export function LoginPage() {
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuth();
+  const location = useLocation()
+  const mensaje = location.state?.mensaje
 
   const [nickName, setNickName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [errores, setErrores] = useState<Record<string, string>>({})
+  const [mostrarMensaje, setMostrarMensaje] = useState(true)
+
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,12 +46,21 @@ export function LoginPage() {
 
   return (
       <Container className="d-flex justify-content-center align-items-center auth-container">
+        <ToastContainer position="top-center" className="p-3">
+          <Toast 
+            show={mensaje && mostrarMensaje} 
+            onClose={() => setMostrarMensaje(false)}
+            delay={3000} 
+            autohide
+            bg="success">
+            <Toast.Body className="text-white">{mensaje}</Toast.Body>
+          </Toast>
+        </ToastContainer>
       <div className="auth-card">
         <h2 className="text-center mb-4 auth-title">Anti-Social Net</h2>
         <h5 className="mb-4 auth-subtitle">Iniciar sesión</h5>
 
         {error && <Alert variant="danger">{error}</Alert>}
-
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
             <Form.Label className="auth-label">Usuario</Form.Label>
