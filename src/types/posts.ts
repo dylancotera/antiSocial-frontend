@@ -13,5 +13,4 @@ export type Post = {
 export type CreatePostData = {
     description: string;
     userId: number;
-    tagIds?: number[];
 }

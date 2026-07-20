@@ -118,7 +118,7 @@ function DetallePost(){
       {post.Tags.length > 0 && (
         <div className="mb-2">
           {post.Tags.map(t => (
-            <span key={t.id} className="post-tag">{t.name}</span>
+            <span key={t.id} className="post-tag">{t.nombre}</span>
           ))}
         </div>
       )}

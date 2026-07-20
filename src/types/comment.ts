@@ -3,9 +3,10 @@ import type { User } from "./users";
 export type Comment = {
     id: number;
     content: string;
+    visible: boolean;
+    userId: number;
+    postId: number;
     createdAt: string;
-    PostId: number;
-    UserId: number;
     User: User;
 }
 

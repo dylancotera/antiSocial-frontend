@@ -2,8 +2,8 @@ import type { Comment, CrearCommentData } from "../types/comment";
 
 const API_URL = "http://localhost:3001/comments";
 
-export async function getComments(id: Number): Promise<Comment[]> {
-    const respuesta = await fetch(`${API_URL}/post/${id}`);
+export async function getComments(postId: number): Promise<Comment[]> {
+    const respuesta = await fetch(`${API_URL}?postId=${postId}`);
 
     if(!respuesta.ok){
         throw new Error("No se pudieron obtener los comentarios");

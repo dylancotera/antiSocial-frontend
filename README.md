@@ -34,9 +34,9 @@ UnaHur Anti-Social Net es una red social donde los usuarios pueden registrarse, 
 
 ## API utilizada
 
-Este proyecto consume la API REST provista por la cátedra:
+Este proyecto consume la API REST:
 
-https://github.com/lucasfigarola/backend-api
+https://github.com/dylancotera/antiSocial-backend
 
 ## Instalación y uso
 
@@ -44,10 +44,10 @@ https://github.com/lucasfigarola/backend-api
 
 ```bash
 # Clonar el repo de la API
-git clone https://github.com/lucasfigarola/backend-api.git
+git clone https://github.com/dylancotera/antiSocial-backend.git
 
 # Entrar al directorio
-cd backend-api
+cd antiSocial-backend
 
 # Instalar dependencias
 npm install
@@ -73,7 +73,3 @@ npm run dev
 ```
 
 La aplicación se conecta a la API en `http://localhost:5173`. Asegurate de tener el backend corriendo antes de usar el frontend.
-
-## Integrante
-
-- Dylan Cotera

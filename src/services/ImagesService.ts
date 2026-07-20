@@ -1,9 +1,9 @@
 import type {CreateImagesData, Images} from "../types/images";
 
-const API_URL = "http://localhost:3001/postimages";
+const API_URL = "http://localhost:3001/images";
 
 export async function getImages(id: Number): Promise<Images[]> {
-    const respuesta = await fetch(`${API_URL}/post/${id}`);
+    const respuesta = await fetch(`http://localhost:3001/posts/${id}/images`);
 
     if(!respuesta.ok){
         throw new Error("No se pudieron obtener las imágenes");

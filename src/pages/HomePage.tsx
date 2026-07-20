@@ -18,8 +18,7 @@ function HomePage(){
         try {
             const nuevoPost = await createPost({
             description,
-            userId: user!.id,
-            tagIds: []
+            userId: user!.id
             })
             const postConUser = {
             ...nuevoPost,

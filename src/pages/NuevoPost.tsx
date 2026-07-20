@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Tag } from "../types/tags";
-import { getTags } from "../services/TagService";
+import { asociarTag, getTags } from "../services/TagService";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import { createPost } from "../services/PostService";
@@ -15,7 +15,7 @@ function NuevoPost(){
     const [selectedTags, setSelectedTags] = useState<number[]>([])
     const [error, setError] = useState("")
     const [tags, setTags] = useState<Tag[]>([])
-
+    
     const agregarCampoImagen = () => setImagenes([...imagenes, ""])
 
     const actualizarImagen = (index: number, value: string) => {
@@ -40,8 +40,10 @@ function NuevoPost(){
             const postCreado = await createPost({ 
                 description,
                 userId: user!.id,
-                tagIds: selectedTags
             })
+            for (const tagId of selectedTags) {
+              await asociarTag(postCreado.id, tagId)
+            }
             for (const url of imagenes) {
                 if(url.trim() !== "") {
                     await createImage({ url, postId: postCreado.id })
@@ -119,7 +121,7 @@ return (
                 onClick={() => toggleTag(tag.id)}
                 className={`tag-btn ${selectedTags.includes(tag.id) ? "active" : ""}`}
                 >
-                {tag.name}
+                {tag.nombre}
               </Button>
             ))}
           </div>

@@ -18,7 +18,7 @@ export async function crearUsuario(data: CreateUserData) : Promise<User> {
   const respuesta = await fetch(API_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
+      body: JSON.stringify({nickName: data.nickName})
     })
 
   if (!respuesta.ok) {
