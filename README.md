@@ -60,10 +60,10 @@ npm run dev
 
 ```bash
 # Clonar este repositorio
-git clone https://github.com/dylancotera/anti-social-net-frontend.git
+git clone https://github.com/dylancotera/antiSocial-frontend.git
 
 # Entrar al directorio
-cd anti-social-net-frontend
+cd antiSocial-frontend
 
 # Instalar dependencias
 npm install
